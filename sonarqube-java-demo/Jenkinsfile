@@ -22,8 +22,7 @@ pipeline {
         stage('Compile & Test') {
             steps {
                 dir('sonarqube-java-demo') {
-                    sh 'mvn -B clean verify'
-                }
+                    sh 'mvn -B clean verify -Dmaven.wagon.rto=10000 -C'                }
             }
             post {
                 always {
